@@ -1,0 +1,129 @@
+.grid{
+    display: grid;
+    grid-template-areas:
+    "NameLabel"
+    "NameInput"
+    "SecondNameLabel"
+    "SecondNameInput"
+    "MailLabel"
+    "MailInput"
+    "PassLabel"
+    "PassInput"
+    "PassLabel2"
+    "PassInput2"
+    "Role"
+    "Reg";
+    grid-template-rows: 40px 80px 40px 80px 40px 80px 40px 80px 40px 90px 120px 80px;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    z-index: 1000;
+    height: auto;
+}
+
+MainLabel,NameLabel,NameInput,MailLabel,MailInput,PassLabel,PassInput,PassLabel2,PassInput2,Reg{
+    padding: 20px;
+}
+
+#MainLabel {
+    text-align: center;
+}
+
+#NameLabel{
+    margin-top: 10px;
+    grid-area: NameLabel;
+}
+
+#NameInput{
+    grid-area: NameInput;
+}
+
+#SecondNameLabel{
+    margin-top: 20px;
+    grid-area: SecondNameLabel;
+}
+
+#SecondInput{
+    grid-area: SecondNameInput;
+}
+
+#MailLabel{
+    margin-top: 20px;
+    grid-area: MailLabel;
+}
+
+#MailInput{
+    grid-area: MailInput;
+}
+
+#PassLabel{
+    margin-top: 20px;
+    grid-area: PassLabel;
+}
+
+#PassInput{
+    grid-area: PassInput;
+}
+
+#PassLabel2{
+    margin-top: 20px;
+    grid-area: PassLabel2;
+}
+
+#PassInput2{
+    grid-area: PassInput2;
+}
+
+#Role{
+    margin-top: 20px;
+    grid-area: Role;
+}
+
+#Reg{
+    margin-top: 20px;
+    grid-area: Reg;
+}
+
+label{
+    color: #000000;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+mat-label{
+    color: #000000;
+}
+
+mat-error{
+    color: #000000;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+mat-form-field{
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+::placeholder{
+    color: #e5e5e5;
+}
+
+button{
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.material-icons{
+    font-family: 'Material Icons' !important;
+    color: #000000 !important;
+}

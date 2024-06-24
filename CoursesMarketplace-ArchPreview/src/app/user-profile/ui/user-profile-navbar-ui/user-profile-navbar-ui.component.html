@@ -1,0 +1,20 @@
+<mat-nav-list id="nav">
+  <h2 matSubheader><b>Настройки профиля</b></h2>
+    <a mat-list-item [routerLink]="['/user-profile/edit']">
+        <span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }"  matLine>Редактирование профиля</span>
+    </a>
+    <a mat-list-item [routerLink]="['/user-profile/mail']" >
+      <span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" matLine>Изменить почту</span>
+  </a>
+  <a mat-list-item [routerLink]="['/user-profile/pass']">
+      <span routerLinkActive="nav-active"  [routerLinkActiveOptions]="{ exact: true }" matLine>Изменить пароль</span>
+  </a>
+  <a mat-list-item>
+      <span class="not-ready" matLine>Реквизиты</span>
+  </a>
+  <a mat-list-item>
+      <span class="not-ready" matLine>Уведомления</span>
+  </a>
+</mat-nav-list>
+
+<router-outlet></router-outlet>

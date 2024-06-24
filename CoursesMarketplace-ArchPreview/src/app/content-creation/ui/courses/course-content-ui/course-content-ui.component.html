@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="gridModules">
+    <h2 id="headline"><b>Добавьте модули в курс: </b></h2>
+    <input [(ngModel)]="name" id="nameInput"class="input-group__input" type="text"
+      placeholder="Введите название модуля*" autocomplete="off" required />
+    <button (click)="createModule()" id="BCreate" class="green-button save">Добавить</button>
+    <div id="ModuleList">
+      <div cdkDropList (cdkDropListDropped)="drop($event)" *ngFor="let course of modules">
+        <div cdkDrag class="card" *ngFor="let module of course.module">
+          <div class="custom-placeholder" *cdkDragPlaceholder></div>
+          <div class="container" [routerLink]="['/teaching/courses/module', module.id]">
+            <h4><b>{{module?.name}}</b></h4>
+          </div>
+          <div class="dot-menu">
+            <input id="dot-menu" type="checkbox" class="dot-menu__checkbox">
+            <label [matMenuTriggerFor]="menu" [matMenuTriggerData]="{module:module}" for="dot-menu"
+              class="dot-menu__label"><span>Menu</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>create</mat-icon>
+      <span>Переименовать</span>
+    </button>
+    <ng-template matMenuContent let-module="module">
+      <button mat-menu-item (click)="deleteModule(module.id)">
+        <mat-icon>delete_forever</mat-icon>
+        <span>Удалить</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+</div>

@@ -1,0 +1,10 @@
+<mat-nav-list id="nav">
+    <h2 matSubheader><b>Преподавание</b></h2>
+    <a mat-list-item [routerLink]="['/teaching/courses']">
+        <span routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" matLine>Курсы</span>
+    </a>
+    <a mat-list-item [routerLink]="['/teaching/studies']">
+        <span routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" matLine>Занятия</span>
+    </a>
+</mat-nav-list>
+<router-outlet></router-outlet>

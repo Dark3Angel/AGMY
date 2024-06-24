@@ -1,0 +1,12 @@
+<div class="page">
+    <app-course-syllabus-navbar-ui [plan]="plan"></app-course-syllabus-navbar-ui>
+    <div class="main" [ngSwitch]="study?.type_content">
+
+        <!--  Выбран тип текст -->
+        <app-study-text-type [study]="study" *ngSwitchCase="1"></app-study-text-type>
+
+        <!-- Выбран тип видео -->
+       <app-study-video-type [study]="study"  *ngSwitchCase="2"></app-study-video-type>
+
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="page">
+    <app-courses-navbar-ui></app-courses-navbar-ui>
+    <app-courses-desc-ui
+    class="main"
+    [data]="data"
+    (updateDescription)="updateCourseDesc($event)"
+    ></app-courses-desc-ui>
+</div>

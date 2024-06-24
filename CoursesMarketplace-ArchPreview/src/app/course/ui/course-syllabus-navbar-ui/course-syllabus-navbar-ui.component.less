@@ -1,0 +1,134 @@
+a {
+  text-decoration: none;
+  transition: all 0.6s ease;
+
+  &:hover {
+    transition: all 0.6s ease;
+  }
+}
+
+/* -------------
+Sidebar
+----------------*/
+.sidebar {
+  position: relative;
+  width: 17em;
+  height: 100%;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  visibility: visible;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  header {
+    background-color: #242e3e;
+    width: 100%;
+    display: block;
+    padding: 0.75em 1em;
+    color: #cccfcf;
+  }
+}
+
+/* -------------
+Sidebar Nav
+----------------*/
+.sidebar-nav {
+  width: 100%;
+  position: fixed;
+  height: inherit;
+  font-weight: 400;
+  background-color: #242e3e;
+  font-size: 1.2em;
+  overflow: auto;
+  padding-bottom: 6em;
+  z-index: 9;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+
+  ul {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-left: 0;
+      padding-left: 0;
+      display: inline-block;
+      width: 100%;
+
+      a {
+        color: #cccfcf;
+        font-size: 0.75em;
+        padding: 1.05em 1em;
+        position: relative;
+        display: block;
+
+        &:hover {
+          background-color: #131921;
+          transition: all 0.6s ease;
+        }
+      }
+    }
+  }
+
+  /* -------------
+Chev elements
+----------------*/
+  &>ul>li>a:after {
+    /* content: '\f125';
+    font-family: ionicons; */
+    //можно поставить значки или инфу о модуле в поле content
+    font-size: 0.5em;
+    width: 10px;
+    color: #cccfcf;
+    position: absolute;
+    right: 0.75em;
+    top: 45%;
+  }
+
+  /* -------------
+Nav-Flyout
+----------------*/
+  & .nav-flyout {
+    width: 100%;
+    position: absolute;
+    background-color: #27374D;
+    z-index: 9;
+    left: 8.5em;
+    top: 0;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+
+    a:hover {
+      background-color: #131921;
+    }
+  }
+
+  /* -------------
+Hover
+----------------*/
+  & ul>li:hover {
+    .nav-flyout {
+      background-color: #1d293b;
+      transform: translateX(-10%);
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+span {
+  display: block;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 110px;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}

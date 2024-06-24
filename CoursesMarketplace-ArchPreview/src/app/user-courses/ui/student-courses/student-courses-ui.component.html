@@ -1,0 +1,13 @@
+<div class = 'header'>
+    <h2>Список курсов на которые вы записаны</h2>
+</div>
+
+<div class = 'CoursesList'>
+    @for (course of courses; track $index) {
+        <div class=card>
+            <div class="container" [routerLink]="['/course', course.translit,]">
+                <h4><b>{{course?.name}}</b></h4>
+            </div>
+        </div>
+    }
+</div>

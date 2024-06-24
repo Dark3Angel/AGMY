@@ -1,0 +1,5 @@
+<div class="main">
+    <video [src]="path" controls height="600" width="800" ></video> <br>
+    <input id="uploadVideo" name="uploadVideo"  (change)="onVideoSelected($event)" type="file" accept=".mp4,.mov,.wmv,.avi,.flv,.mkv" #VideoInput/>
+    <button class="green-button Bsave" (click)="SaveContent(VideoInput.files!)" >Сохранить</button>
+ </div>

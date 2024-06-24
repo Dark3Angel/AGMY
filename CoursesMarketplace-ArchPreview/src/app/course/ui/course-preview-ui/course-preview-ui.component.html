@@ -1,0 +1,135 @@
+<div class="container">
+    <div id="banner" class="banner">
+
+        <div class="PageCentering">
+            <div id="headertext ">
+                <h2 class="leftElementPositioning">{{plan?.name}}</h2>
+                <h3 class="leftElementPositioning">{{plan?.coursedesc?.shortabout}}</h3>
+                <h4 class="leftElementPositioning">Автор: <span class="authorName">{{plan?.user?.name}}
+                        {{plan?.user?.secondname}}</span></h4>
+            </div>
+
+            <div *ngIf="plan?.image_path!=null" id="headerimage">
+                <div class="image">
+                    <img class="picture" src={{path+plan?.image_path}}>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mainContent" class="mainContent">
+        <div class="PageCentering">
+            <div class="main">
+
+                <div id="CourseLearn" class="leftElementPositioning">
+                    <h2 class="header">Чему вы научитесь</h2>
+                    <ul class="Learnlist" *ngFor="let learn of learnlist">
+                        <li class="checkmark">{{learn}}</li>
+                    </ul>
+                </div>
+
+                <div id="CourseContent" class="leftElementPositioning">
+                    <h2 class="header">Содержание курса</h2>
+                    <div class="panel">
+                        <details *ngFor="let module of plan?.module">
+                            <summary>
+                                <ul class="ModuleList">
+                                    <li class="ModuleName">{{module?.name}}</li>
+                                    <li class="ModuleAbout">{{module?.about}}</li>
+                                    <li></li>
+                                </ul>
+                            </summary>
+                            <div *ngFor="let study of module.study" class="content">
+                                <p class="StudyName">{{study?.name}}</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div id="req" class="leftElementPositioning">
+                    <h2 class="header">Требования</h2>
+                    <ul class="Learnlist" *ngFor="let req of reqlist">
+                        <li class="arrow">{{req}}</li>
+                    </ul>
+                </div>
+
+                <div id="about" class="leftElementPositioning">
+                    <h2 class="header">О курсе</h2>
+                    <div class="editorbackground editor" id="editor-about"></div>
+                </div>
+
+                <div id="audience" class="leftElementPositioning">
+                    <h2 class="header">Для кого этот курс</h2>
+                    <h3>{{plan?.coursedesc?.audience}}</h3>
+                </div>
+
+                <div id="creator" class="leftElementPositioning">
+                    <!-- <h2 class="header">Автор</h2> -->
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+
+                    <div class="header price">
+                        <dt *ngIf="plan?.price!=null; else free"> {{plan?.price}} ₽</dt>
+                        <ng-template #free> Бесплатно </ng-template>
+                    </div>
+                    <div class="buttonContainer">
+                        <button *ngIf="signed | async; else unset" (click)="toCourse()" type="button"
+                            class="action">Перейти в курс</button>
+                        <ng-template #unset>
+                            <button (click)="signUser()" type="button"
+                            class="action">Записаться</button>
+                        </ng-template>
+                    </div>
+
+                    <p class="desc">Данный курс включает:</p>
+                    <div id="listInclude">
+                        <ul class="lists">
+
+                            <li class="list">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>5 часов видео</span>
+                            </li>
+
+                            <li class="list">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span> 10 текстовых занятий</span>
+                            </li>
+
+                            <li class="list">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span> 15 видео уроков</span>
+                            </li>
+
+                            <li class="list">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span> 6 практических тестов</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

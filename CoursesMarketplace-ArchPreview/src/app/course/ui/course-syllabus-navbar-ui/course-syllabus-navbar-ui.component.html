@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <header>
+    Содержание курса
+  </header>
+  <nav class="sidebar-nav">
+    <ul>
+      <li *ngFor="let module of plan?.module">
+        <a><span>{{module?.name}}</span></a>
+        <ul class="nav-flyout">
+          <li *ngFor="let study of module?.study">
+            <a [routerLink]="['/course',plan.id,'syllabus','study',study.id]">
+              <span routerLinkActive="" [routerLinkActiveOptions]="{ exact: true }">{{study?.name}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>

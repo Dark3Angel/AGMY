@@ -1,0 +1,22 @@
+<div class = 'header'>
+    <h2>Список ваших курсов</h2>
+</div>
+<div class="accordion">
+    <mat-accordion>
+        @for (course of courses; track $index) {
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{course.name}}</mat-panel-title>
+                    <mat-panel-description>Пользователей записано: {{course.signedUsers.length}}</mat-panel-description>
+                </mat-expansion-panel-header>
+                @for (user of course.signedUsers; track $index) {
+                    <div class="container">
+                        <p>{{user.name}} {{user.secondname}}</p>
+                        <p>{{user.name}}</p>
+                        <mat-icon>account_circle</mat-icon>
+                    </div>
+                }
+            </mat-expansion-panel>
+        }
+    </mat-accordion>
+</div>

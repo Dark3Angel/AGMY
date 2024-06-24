@@ -1,0 +1,9 @@
+<body class="frame">
+    <div id="StudyList" class="list">
+        <div class="card" *ngFor="let study of studies" (click)="addStudy(study.id)">
+            <div class="container">
+                <h4><b>{{study.name}}</b></h4>
+            </div>
+        </div>
+    </div>
+</body>

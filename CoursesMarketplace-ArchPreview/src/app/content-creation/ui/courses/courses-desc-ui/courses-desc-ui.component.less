@@ -1,0 +1,161 @@
+.gridDesc {
+  display: grid;
+  grid-template-areas:
+    "headline"
+    "pic"
+    "uploadImage"
+    "name"
+    "shortabout"
+    "learning"
+    "requirments"
+    "about"
+    "audience"
+    "bsave";
+  grid-template-rows: 50px 15% 50px 100px 170px 170px 170px auto 170px auto;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  justify-items: center;
+  position: relative;
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+#headline {
+  grid-area: headline;
+}
+
+#pic {
+  height: 250px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-area: pic;
+}
+
+#uploadImage {
+  grid-area: uploadImage;
+}
+
+#name {
+  min-width: 550px;
+  max-width: 550px;
+  grid-area: name;
+}
+
+#shortabout {
+  grid-area: shortabout;
+  min-width: 550px;
+  max-width: 550px;
+}
+
+#learning {
+  grid-area: learning;
+  min-width: 550px;
+  max-width: 550px;
+}
+
+#requirments {
+  grid-area: requirments;
+  min-width: 550px;
+  max-width: 550px;
+}
+
+#about {
+  grid-area: about;
+  min-width: 550px;
+  max-width: 550px;
+}
+
+#audience {
+  grid-area: audience;
+  min-width: 550px;
+  max-width: 550px;
+}
+
+#bsave {
+  grid-area: bsave;
+}
+
+.save {
+  width: 95px;
+  height: 35px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.contant_save {
+  margin-top: -50px;
+}
+
+.labels {
+  padding-bottom: 10px;
+}
+
+textarea {
+  width: 300px;
+  height: 150px;
+}
+
+.pic {
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 200px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.editorbackground {
+  background-color: white;
+}
+
+.editor {
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+}
+
+@primary-color: #0086e4;
+@border-color: #dddddd;
+
+// Input
+@input-height: 40px;
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    height: @input-height;
+    border: 1px solid @border-color;
+    border-radius: 8px;
+    padding: 0 10px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid @primary-color;
+    }
+  }
+
+  &__textarea {
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+
+    &:focus {
+      outline: none;
+      border: 1px solid @primary-color;
+    }
+  }
+}

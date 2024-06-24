@@ -1,0 +1,26 @@
+<div class="grid">
+    <h2 id="headline">Редактирование {{study?.name}}</h2>
+    <div id="content">
+        <!-- Отсутствие выбранного типа -->
+        <div *ngIf="!study?.type_content; else content" class="center">
+            <button mat-button (click)="chooseType()"> Выбрать тип занятия </button>
+        </div>
+        <ng-template #content>
+            <div [ngSwitch]="study.type_content">
+
+                <!--  Выбран тип текст -->
+                <app-study-content-text *ngSwitchCase="1"
+                [study]="study" 
+                (updateStudy)="studyUpdate($event)"
+                ></app-study-content-text>
+
+                <!-- Выбран тип видео -->
+                <app-study-content-video *ngSwitchCase="2"
+                [study]="study"
+                (updateStudy)="studyUpdate($event)"
+                ></app-study-content-video>
+
+            </div>
+        </ng-template>
+    </div>
+</div>

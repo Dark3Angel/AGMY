@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="gridStudies">
+        <h2 id="headline"><b>Занятия</b></h2>
+        <input [(ngModel)]="name" id="nameInput" class="input-group__input" type="text" placeholder="Введите название занятия*"
+            autocomplete="off" required />
+        <button (click)="createStudy()" id="BCreate" class="green-button save">Создать</button>
+        <div id="StudyList">
+            <div class="card" *ngFor="let study of studies">
+                <div class="container" [routerLink]="['/teaching/studies', study.id]">
+                    <h4><b>{{study?.name}}</b></h4>
+                </div>
+                <div class="dot-menu">
+                    <input id="dot-menu" type="checkbox" class="dot-menu__checkbox">
+                    <label [matMenuTriggerFor]="menu" [matMenuTriggerData]="{study:study}" for="dot-menu"
+                        class="dot-menu__label"><span>Menu</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>create</mat-icon>
+            <span>Переименовать</span>
+        </button>
+        <ng-template matMenuContent let-study="study">
+            <button mat-menu-item (click)="removeStudy(study.id)">
+                <mat-icon>delete_forever</mat-icon>
+                <span>Удалить</span>
+            </button>
+        </ng-template>
+    </mat-menu>
+</div>

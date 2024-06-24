@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@HeaderHeight: 64px;
+@PageHeight: calc(100dvh - @HeaderHeight);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.page {
+	min-height: @PageHeight;
+	margin: @HeaderHeight auto 50px auto;
+	width: 100%;
+  max-width: 1500px;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media screen and(min-width:300px) {
+  .page {
+    min-width: 300px
+  }
+}
+
+@media screen and(min-width:400px) {
+  .page {
+    min-width: calc(100vw - 300px);
+  }
+}
+
+@media screen and(min-width:1500px) {
+  .page {
+    min-width: 1200px
+  }
+}
+
+.image-tool__image-picture {
+	//editorjs
+	margin: 0 auto !important;
+}
+
+.image-tool__caption {
+	//editorjs
+	text-align: center !important;
+}
+
+.image-tool__caption::before {
+	//editorjs
+	left: 50%;
+}
+
+.border-container .mat-mdc-dialog-container .mdc-dialog__surface {
+	// dialog
+	border-radius: 15px !important;
+}
+
+.green-button {
+	//общий стиль для зеленой кнопки
+	color: white;
+	background-color: rgb(30, 157, 30);
+	border-radius: 7px;
+	border: none;
+	cursor: pointer;
+	//opacity: 0.6;
+	transition: 0.2s;
+}
+
+.green-button:hover {
+	background-color: rgb(26, 135, 26);
+	//opacity: 1;
+}

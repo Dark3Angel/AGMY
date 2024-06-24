@@ -1,0 +1,14 @@
+<mat-nav-list id="nav">
+    <h2 matSubheader><b>{{name}}</b></h2>
+    <a mat-list-item [routerLink]="['/teaching/courses', id ,'description']">
+        <span routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" matLine>Описание</span>
+    </a>
+    <a mat-list-item [routerLink]="['/teaching/courses', id ,'content']">
+        <span routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }" matLine>Содержание</span>
+    </a>
+    <button (click)="publishCourse()" mat-list-item class="publish">
+        Опубликовать
+    </button>
+</mat-nav-list>
+
+<router-outlet></router-outlet>

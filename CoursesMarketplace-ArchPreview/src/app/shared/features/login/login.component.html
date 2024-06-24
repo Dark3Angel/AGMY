@@ -1,0 +1,38 @@
+<form class="grid" [formGroup]="formGroup">
+
+    <h2 mat-dialog-title id="MainLabel">Авторизация</h2>
+    
+          <label id="MailLabel" for="username">Почта</label>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="mail" placeholder="Ex. pat@example.com" id="MailInput">
+            <mat-error *ngIf="formGroup.hasError('email','mail') && !formGroup.hasError('required','mail')">
+              Неверная почта
+            </mat-error>
+            <mat-error *ngIf="formGroup.hasError('required','mail')">
+              Это обязательное поле
+            </mat-error>
+          </mat-form-field>
+    
+          <label id="PassLabel" for="password">Пароль</label>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Пароль</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="pass" id="PassInput">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+              {{showPassword?'visibility_off':'visibility'}}
+          </mat-icon>
+            <mat-error>Это обязательное поле</mat-error>
+        </mat-form-field>
+    
+        <button id="Confirm" mat-raised-button color="primary" (click)="log()"
+        [disabled]="formGroup.invalid || !!formError">Войти</button>
+        <mat-error *ngIf="formError">{{formError}}</mat-error>
+        
+        <button mat-button mat-dialog-close (click)="openReg()" id="Reg" mat-raised-button>Зарегистрироваться</button>
+    
+        <div *ngIf="error">
+         <!-- <app-red-cross-animation></app-red-cross-animation> -->
+       </div>
+    </form>

@@ -1,0 +1,77 @@
+<form  [formGroup]="RegForm" (ngSubmit)="reg()">
+
+    <h2 mat-dialog-title id="MainLabel">Регистрация</h2>
+    
+    <mat-dialog-content class="grid">
+    <label id="NameLabel">Имя</label>
+    
+    <mat-form-field  appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input matInput formControlName="name" id="NameInput">
+        <mat-error>
+          Это обязательное поле
+        </mat-error>
+      </mat-form-field>
+    
+      <label id="SecondNameLabel">Фамилия</label>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Фамилия</mat-label>
+        <input matInput formControlName="secondname" id="SecondNameInput">
+        <mat-error>
+          Это обязательное поле
+        </mat-error>
+      </mat-form-field>
+    
+          <label id="MailLabel">Почта</label>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Почта</mat-label>
+            <input type="email" matInput formControlName="mail" placeholder="Ex. pat@example.com" id="MailInput">
+            <mat-error *ngIf="RegForm.hasError('email','mail') && !RegForm.hasError('required','mail')">
+              Неверная почта
+            </mat-error>
+            <mat-error *ngIf="RegForm.hasError('required','mail')">
+              Это обязательное поле
+            </mat-error>
+          </mat-form-field>
+    
+          <label id="PassLabel">Пароль</label>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Придумайте пароль</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="pass" id="PassInput">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+            <mat-error>Это обязательное поле</mat-error>
+        </mat-form-field>
+    
+        <label id="PassLabel2">Проверка пароля</label>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Повторите пароль</mat-label>
+            <input matInput [type]="show2Password ? 'text' : 'password'" formControlName="secondpass" id="PassInput2">
+            <mat-icon matSuffix (click)="toggle2PasswordVisibility()">
+                {{show2Password?'visibility_off':'visibility'}}
+            </mat-icon>
+            <mat-error>Это обязательное поле</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearence = "outline">
+          <mat-label>Выберите роль</mat-label>
+          <mat-select formControlName = 'role' id = 'Role'>
+            <mat-option value="student">Ученик</mat-option>
+            <mat-option value="teacher">Преподаватель</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <button id="Reg" mat-raised-button color="primary"
+        [disabled]="RegForm.invalid || !!formError">Зарегистрироваться</button>
+        <mat-error *ngIf="formError">{{formError}}</mat-error>
+    
+      </mat-dialog-content>
+      <div *ngIf="done">
+       <!--  успешная регистрация -->
+     </div>
+    </form>

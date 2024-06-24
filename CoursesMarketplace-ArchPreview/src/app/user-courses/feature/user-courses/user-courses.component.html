@@ -1,0 +1,17 @@
+<div class = 'page'>
+    <div *ngIf="courses$ | async as courses">
+       <div [ngSwitch]="courses.type">
+
+            <app-student-courses-ui
+            *ngSwitchCase = "'student'"
+            [courses]="courses.courses!"
+            ></app-student-courses-ui>
+
+            <app-teacher-courses-ui
+            *ngSwitchCase = "'teacher'"
+            [courses]="courses.courses!"
+            ></app-teacher-courses-ui>
+
+       </div>
+    </div>
+</div>

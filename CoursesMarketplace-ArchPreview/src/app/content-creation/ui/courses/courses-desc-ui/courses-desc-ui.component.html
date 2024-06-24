@@ -1,0 +1,69 @@
+<div class="gridDesc">
+    <h2 id="headline">Описание курса</h2>
+    <img id="pic" src='{{coursepic}}'>
+    <input
+        id="uploadImage"
+        name="uploadImage"
+        (change)="onFileSelected(imageInput.files)"
+        type="file"
+        accept=".jpg,.jpeg,.png,"
+        #imageInput
+    />
+    <div id="name">
+        <div class="labels">Название курса</div>
+        <input
+            id="nameInput"
+            [(ngModel)]="data.name"
+            class="input-group__input"
+            type="text"
+            placeholder="Название курса."
+            autocomplete="off"
+            required
+        />
+    </div>
+    <div id="shortabout">
+        <div class="labels">Краткое описание курса</div>
+        <textarea
+            id="shortAbout"
+            [(ngModel)]="data.coursedesc.shortabout"
+            class="input-group__textarea"
+            placeholder="Видно при предпросмотре курса сразу после названия."
+            required>
+        </textarea>
+    </div>
+    <div id="learning">
+        <div class="labels">Чему вы научитесь</div>
+        <textarea
+            id="Learning"
+            [(ngModel)]="data.coursedesc.learn"
+            class="input-group__textarea"
+            placeholder="Перечислите чему научатся ваши ученики во время прохождения этого курса.&#10;Каждый пункт начинайте с новой строки."
+            required>
+        </textarea>
+    </div>
+    <div id="requirments">
+        <div class="labels">Требования</div>
+        <textarea
+            id="Requirments"
+            [(ngModel)]="data.coursedesc.req"
+            class="input-group__textarea"
+            placeholder="Опишите какой начальный багаж знаний должен быть у обучающегося для поступления на данный курс.&#10;Каждый пункт начинайте с новой строки."
+            required>
+        </textarea>
+    </div>
+    <div id="about">
+        <div class="labels">Описание</div>
+        <div class="editorbackground editor" id="editor-about"></div>
+    </div>
+    <div id="audience">
+        <div class="labels">Для кого этот курс</div>
+        <textarea
+        id="Audience"
+            [(ngModel)]="data.coursedesc.audience"
+            class="input-group__textarea"
+            placeholder="Опишите целевую аудиторию вашего курса. Кому этот курс нужен и для кого он будет полезен."
+            required>
+        </textarea>
+    </div>
+    <button id="bsave" (click)="onSaveButton(imageInput.files!)" class="green-button save">Сохранить</button>
+</div>

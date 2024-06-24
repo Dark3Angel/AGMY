@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="gridModule">
+        <h2 id="headline"><b>Содержание модуля: </b></h2>
+        <input
+            id="about"
+            class="input-group__input"
+            type="text"
+            placeholder="Краткое описание модуля*"
+            autocomplete="off"
+            required 
+        />
+        <div id="StudyList">
+            <div class="card" *ngFor="let study of studies" [routerLink]="['/teaching/studies', study.id]">
+                <div class="container">
+                    <h4><b>{{study?.name}}</b></h4>
+                </div>
+            </div>
+        </div>
+        <button (click)="addStudy()" id="BCreate" class="green-button save">Добавить занятие</button>
+    </div>
+</div>

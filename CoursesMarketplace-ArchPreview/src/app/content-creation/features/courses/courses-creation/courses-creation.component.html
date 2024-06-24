@@ -1,0 +1,9 @@
+<div class="page">
+    <app-courses-studies-navbar-ui></app-courses-studies-navbar-ui>
+    <app-courses-creation-ui
+    class="main"
+    [courses]="courses"
+    (deleteCourse)="deleteCourse($event)"
+    (newCourse)="createCourse($event)"
+    ></app-courses-creation-ui>
+</div>

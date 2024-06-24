@@ -1,0 +1,44 @@
+<body class="sides">
+	<div *ngIf="!loaded" class="row">
+		<div class="column" *ngFor="let item of [].constructor(12); let i = index">
+			<div class="card is-loading">
+				<div class="imageframe">
+					<img class="picture">
+				</div>
+				<div class="header">
+					<div>
+						<a class="title"></a>
+						<p class="name"></p>
+					</div>
+				</div>
+				<dl class="post-info">
+					<div class="price"></div>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="loaded" class="row">
+		<div class="column" *ngFor="let course of courses">
+			<div class="card" [routerLink]="['/course',course.translit]">
+				<div class="imageframe">
+					<img class="picture" src={{path+course.image_path}}>
+				</div>
+				<div class="header">
+					<div>
+						<a class="title">
+							{{course?.name}}
+						</a>
+						<p class="name">Автор: {{course?.user?.name}} {{course?.user?.secondname}}</p>
+					</div>
+				</div>
+				<dl class="post-info">
+					<div class="price">
+						<dt *ngIf="course.price!=null; else free">{{course?.price}} ₽</dt>
+						<ng-template #free> Бесплатно </ng-template>
+					</div>
+				</dl>
+			</div>
+		</div>
+	</div>
+</body>

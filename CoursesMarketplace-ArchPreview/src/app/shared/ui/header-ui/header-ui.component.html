@@ -1,0 +1,66 @@
+<header class="header sticky grid" id="header">
+
+	<h1 [routerLink]="['/']" id="logo">LAB</h1>
+
+	<div class="topnav" id="topnav">
+		<a [matMenuTriggerFor]="tags" #menuTrigger="matMenuTrigger" (mouseenter)="mouseEnter(menuTrigger)"
+			(mouseleave)="mouseLeave(menuTrigger)">
+			<div class="catalog">Каталог</div>
+		</a>
+
+		<mat-menu #tags="matMenu" [hasBackdrop]="false">
+			<div (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
+				<button (click)="Tags('business')" mat-menu-item>Бизнес</button>
+				<button (click)="Tags('school')" mat-menu-item>Школа</button>
+				<button (click)="Tags('design')" mat-menu-item>Дизайн</button>
+				<button (click)="Tags('development')" mat-menu-item [matMenuTriggerFor]="tag_4">Разработка</button>
+				<button (click)="Tags('marketing')" mat-menu-item>Маркетинг</button>
+				<button (click)="Tags('music')" mat-menu-item>Музыка</button>
+				<button (click)="Tags('health')" mat-menu-item>Здоровье</button>
+				<button (click)="Tags('finance')" mat-menu-item>Финансы</button>
+				<button (click)="Tags('it')" mat-menu-item [matMenuTriggerFor]="tag_9">ИТ</button>
+				<button (click)="Tags('psychology')" mat-menu-item>Психология</button>
+			</div>
+		</mat-menu>
+	</div>
+
+	<div id="searchbar" class="wrap">
+		<div class="search">
+			<input (keyup.enter)="Query()" id="SearchInput" type="text" class="searchTerm"
+				placeholder="Что вы хотите найти?">
+			<button (click)="Query()" type="submit" class="searchButton">
+				<mat-icon>search</mat-icon>
+			</button>
+		</div>
+	</div>
+
+	<div id="create"  *ngIf="role">
+		<a [routerLink]="['/teaching/courses']">Преподавание</a>
+	</div>
+
+	<div id="log" class="topnav">
+		<a *ngIf="!loggedIn" (click)="login()">Войти</a>
+		<app-user-card-ui [user]="User" (LogOut)="LoggingOut($event)" *ngIf="loggedIn"></app-user-card-ui>
+	</div>
+
+</header>
+
+<mat-menu #tag_4="matMenu">
+	<div (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
+		<button (click)="Tags('development','web-development')" mat-menu-item>Веб-разработка</button>
+		<button (click)="Tags('development','no-code-low-code-development')" mat-menu-item>No-code и Low-code
+			разработка</button>
+		<button (click)="Tags('development','testing')" mat-menu-item>Тестирование</button>
+		<button (click)="Tags('development','programming-languages')" mat-menu-item>Языки программирования</button>
+		<button (click)="Tags('development','desktop-development')" mat-menu-item>Десктоп разработка</button>
+		<button (click)="Tags('development','mobile-development')" mat-menu-item>Мобильная разработка</button>
+	</div>
+</mat-menu>
+
+<mat-menu #tag_9="matMenu" (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
+	<div (mouseenter)="mouseEnter(menuTrigger)" (mouseleave)="mouseLeave(menuTrigger)">
+		<button (click)="Tags('it','business-analytics')" mat-menu-item>Бизнес-аналитика</button>
+		<button (click)="Tags('it','system-analytics')" mat-menu-item>Системная аналитика</button>
+		<button (click)="Tags('it','documents')" mat-menu-item>Документация</button>
+	</div>
+</mat-menu>

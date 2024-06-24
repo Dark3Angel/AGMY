@@ -1,0 +1,11 @@
+<div class="page">
+    <app-courses-navbar-ui></app-courses-navbar-ui>
+    <app-courses-content-ui
+    class="main"
+    [moduleorder]="moduleorder"
+    [modules]="modules"
+    (newOrder)="drop()"
+    (delete)="deleteModule($event)"
+    (newModule)="createModule($event)"
+    ></app-courses-content-ui>
+</div>
